@@ -15,12 +15,13 @@ def click_first_result(context):
     sleep(1.5)
 
 
-@then('Search result for <expected_result> is shown')
+@then('Search result for {product} is shown')
 def verify_result(context, product):
     # result_text = context.driver.find_element(*TOOLBAR_TEXT_BOLD).text
     # # assert result_text == '"dress"', f"Expected text is dress but got {result_text}"
     # assert product in result_text, f"Expected text is dress but got {result_text}"
     context.app.search_results.verify_result_shown(product)
+
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
