@@ -10,4 +10,4 @@ Feature: Multiple product search
     |toys   | toys          |
     Given Open Amazon page
     When Search for <keyword>
-    Then Search results for <expected_result> is shown
+    Then Search result for <expected_result> is shown

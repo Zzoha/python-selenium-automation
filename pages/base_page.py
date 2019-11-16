@@ -1,6 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-
+from selenium.webdriver.common.action_chains import ActionChains
 
 class Page:
 
@@ -9,6 +9,7 @@ class Page:
         self.base_url = "https://www.amazon.com/"
         self.wait = WebDriverWait(self.driver, 15)
         self.url = driver.current_url
+        self.actions = ActionChains(self.driver)
 
     def click(self, *locator):
         """
@@ -45,5 +46,8 @@ class Page:
     def verify_url(self, url=''):
         self.url = self.driver.current_url
         assert url in self.url
+
+
+
 
 

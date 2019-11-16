@@ -4,10 +4,11 @@ from behave import given, when, then
 
 ATC_BUTTON = (By.ID, 'add-to-cart-button')
 CLOSING_X_SIDE_SECTION = (By.ID, 'attach-close_sideSheet-link')
-COLOR_OPTIONS = (By. CSS_SELECTOR, 'div#variation_color_name li')
+COLOR_OPTIONS = (By.CSS_SELECTOR, 'div#variation_color_name li')
 SELECTED_COLOR = (By.CSS_SELECTOR, 'div#variation_color_name span.selection')
 COLOUR_VARIETY = (By.CSS_SELECTOR, "ul[data-action = 'a-button-group'] li")
 SELECTED_COLOUR = (By.CSS_SELECTOR, "div span.selection")
+
 
 @when('Click Add to cart button')
 def click_add_to_cart(context):
@@ -21,10 +22,10 @@ def close_side_suggestions(context):
     if len(closing_btn) == 1:
         closing_btn[0].click()
 
-@given('Open Amazon product {product_id} page')
-def open_dress_page(context, product_id):
-    context.driver.get(f"https://www.amazon.com/gp/product/{product_id}/")
 
+@given('Open Amazon product {product_id} page')
+def open_product(context, product_id):
+    context.app.product_page.open_product_page(product_id)
 
 
 @then('Verify User can select through colors')
@@ -67,4 +68,3 @@ def verify_colours(context):
         print(actual_colour)
 
         assert actual_colour == expected_colours[colour_web_elements.index(colour)]
-

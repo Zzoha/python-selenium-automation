@@ -3,6 +3,7 @@ from pages.search_results import SearchResultsPage
 from pages.shopping_cart_page import ShoppingCart
 from pages.sign_in_page import SignInPage
 from pages.side_menu import SideMenu
+from pages.product_page import Product
 
 
 class Application:
@@ -14,4 +15,4 @@ class Application:
         self.shopping_cart_page = ShoppingCart(self.driver)
         self.sign_in_page = SignInPage(self.driver)
         self.side_menu = SideMenu(self.driver)
-
+        self.product_page = Product(self.driver)

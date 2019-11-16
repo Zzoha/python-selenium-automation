@@ -185,3 +185,20 @@ def verify_item_in_cart(context, expected_num):
 @when("Clicks on link to proceed to Best Seller page")
 def best_seller_link_click(context):
     context.driver.find_element(By.LINK_TEXT, "Best Sellers").click()
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@when("Select Books Department")
+def select_department(context):
+    context.app.main_page.select_department('search-alias=stripbooks')
+
+
+@when('Select Sports & Outdoors Department')
+def select_new_department(context):
+    context.app.main_page.select_department('search-alias=sporting')
+
+
+@then("{department} department is selected")
+def verify_selected_department(context, department):
+    context.app.main_page.verify_selected_department(department)
